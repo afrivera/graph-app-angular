@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ChartData } from 'chart.js';
 
 @Component({
   selector: 'app-double-bars',
@@ -6,11 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class DoubleBarsComponent implements OnInit {
+export class DoubleBarsComponent {
 
-  constructor() { }
+  dataProvider: ChartData<'bar'> = {
+    labels: [ '2021', '2022', '2023', '2024', '2025' ],
+    datasets: [
+      { data: [ 100, 200, 300, 400, 500 ], label: 'Salesman A'},
+      { data: [ 20, 250, 30, 450, 200 ], label: 'Salesman B'},
+    ]
+  }
 
-  ngOnInit(): void {
+  dataProduct: ChartData<'bar'> = {
+    labels: [ '2021', '2022', '2023', '2024', '2025' ],
+    datasets: [
+      { data: [ 200, 300, 400, 300, 100 ], label: 'Salesman A', backgroundColor: 'blue' }
+    ]
   }
 
 }
