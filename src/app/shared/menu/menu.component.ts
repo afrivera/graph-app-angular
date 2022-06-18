@@ -1,16 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+interface MenuItem {
+  route: string;
+  text: string;
+}
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styles: [
+  styles: [`
+    li {
+      cursor: pointer;
+    }
+  `
   ]
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  menu: MenuItem [] = [
+    { route: 'graphs/bar', text: 'bars'},
+    { route: 'graphs/double-bar', text: 'double bars'},
+    { route: 'graphs/doughnut', text: 'doughnuts'},
+    { route: 'graphs/doughnut-http', text: 'doughnuts http'},
+  ]
 
 }
